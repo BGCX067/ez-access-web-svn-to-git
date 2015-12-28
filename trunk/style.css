@@ -1,0 +1,191 @@
+#ezselected {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    /*border:5px solid rgba(255,255,0,1);*/
+    position: absolute;
+    border-radius: 15px;
+    z-index: 2000000000; /* Almost maximum z-index supported ;) */
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(255, 255, 100, .80);
+    -moz-box-shadow: 0px 0px 15px 5px rgba(255, 255, 100, .80);
+    /*box-shadow: 0px 0px 15px 5px rgba(255, 255, 100, .80);*/
+    pointer-events: none; /* Make click-able through the DIV (for example, if it's on top of something with an event with kb) */
+}
+
+.pulse {
+    -webkit-animation-name: pulse;
+    -webkit-animation-duration: .1s;
+    -webkit-animation-iteration-count: 3;
+}
+
+/* TINYBOX MODAL POPUP */
+#tinyboxhelp {
+    z-index: 2000000002; /* Higher than EZ selector & tinybox alert */
+    background: #FFFFCC;
+    color: #000000;
+    position: absolute;
+    display: none;
+    padding: 10px;
+    border: 10px solid #e1e1af;
+    width: 80% !important;
+    left: 10% !important;
+}
+
+/* TINYBOX MODAL POPUP */
+#tinyboxalert {
+    z-index: 2000000001; /* Higher than EZ selector */
+    background: #FFFFCC;
+    color: #000000;
+    position: absolute;
+    display: none;
+    padding: 10px;
+    border: 10px solid #e1e1af;
+    width: 50% !important;
+    left: 25% !important;
+}
+
+#tinymaskhelp {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    z-index: 1500
+}
+
+#tinymaskalert {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    z-index: 1500
+}
+
+#tinycontenthelp {
+    font-size: 32px;
+    line-height: 110%;
+    font-variant: normal;
+    font-stretch: normal;
+    background: transparent;
+}
+
+#tinycontentalert {
+    font-size: 32px;
+    line-height: 110%;
+    font-variant: normal;
+    font-stretch: normal;
+    background: transparent;
+}
+
+#closexhelp {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 5000;
+    background-image: url('data:image/svg+xml;utf8,<?xml version="1.0"?><svg width="60" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="closebutton"><circle cx="30" cy="30" r="29.5" fill="#FFFFFF" stroke="#333300" stroke-opacity="0.5" stroke-width="1" id="circle1" /><circle cx="30" cy="30" r="26" fill="#666633" id="circle2" /><path id="x" d="M36,30 l10,10 l-6,6 l-10,-10 l-10,10 l-6,-6 l10,-10 l-10,-10 l6,-6 l10,10 l10,-10 l6,6 z" fill="#FFFFFF" /></g></svg>');
+    background-repeat: no-repeat;
+    width: 60px;
+    background-size: 100%;
+    height: 60px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+#closexalert {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 5000;
+    background-image: url('data:image/svg+xml;utf8,<?xml version="1.0"?><svg width="60" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="closebutton"><circle cx="30" cy="30" r="29.5" fill="#FFFFFF" stroke="#333300" stroke-opacity="0.5" stroke-width="1" id="circle1" /><circle cx="30" cy="30" r="26" fill="#666633" id="circle2" /><path id="x" d="M36,30 l10,10 l-6,6 l-10,-10 l-10,10 l-6,-6 l10,-10 l-10,-10 l6,-6 l10,10 l10,-10 l6,6 z" fill="#FFFFFF" /></g></svg>');
+    background-repeat: no-repeat;
+    width: 60px;
+    background-size: 100%;
+    height: 60px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+#closexbuffer {
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+
+#tinycontenthelp h1, #tinycontenthelp h2, #tinycontenthelp h3,
+#tinycontenthelp h4, #tinycontenthelp h5, #tinycontenthelp h6 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+}
+
+#tinycontenthelp h1 {
+    font-size: 150%;
+}
+
+#tinycontenthelp h2 {
+    font-size: 130%;
+}
+
+#tinycontenthelp h3 {
+    font-size: 110%;
+}
+
+#tinycontenthelp h1 + p {
+    margin-top: 0;
+}
+
+#tinycontenthelp p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#tinycontentalert h1, #tinycontentalert h2, #tinycontentalert h3,
+#tinycontentalert h4, #tinycontentalert h5, #tinycontentalert h6 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+}
+
+#tinycontentalert h1 {
+    font-size: 150%;
+}
+
+#tinycontentalert h2 {
+    font-size: 130%;
+}
+
+#tinycontentalert h3 {
+    font-size: 110%;
+}
+
+#tinycontentalert h1 + p {
+    margin-top: 0;
+}
+
+#tinycontenthelp p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#tinycontenthelp hr {
+    border: 0;
+    height: 2px;
+    background-color: #333333;
+    background-image: -webkit-linear-gradient(left, #CCCCCC, #333333, #CCCCCC);
+    background-image: linear-gradient(left, #CCCCCC, #333333, #CCCCCC);
+}
+
+#tinycontentalert hr {
+    border: 0;
+    height: 2px;
+    background-color: #333333;
+    background-image: -webkit-linear-gradient(left, #CCCCCC, #333333, #CCCCCC);
+    background-image: linear-gradient(left, #CCCCCC, #333333, #CCCCCC);
+}

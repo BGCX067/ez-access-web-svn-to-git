@@ -1,0 +1,54 @@
+#summary A list of all attributes supported by EZ Access, and those that are not supported.
+
+= NOTE: This page is outdated as of v0.10.0.0. =
+
+= Introduction =
+
+The following attributes are from the official [http://code.google.com/p/ez-access-web/downloads/detail?name=EZ%20Access%20Browser%20plugin%20Stage%201.doc specifications document]. The attributes and features are listed as supported, partially supported, or not (and when it will be, if ever).
+
+
+= Details =
+
+=== {{{<body>}}} tag attributes ===
+|| *Name* || *Code* || *Description* || *Documentation* || *Support* || 
+|| EZ Access supported || {{{data-ez}}} || When included, the EZ Access plugin detects the page as EZ Access-compatible. || [attrEZ `data-ez` documentation] || <font color="green">Fully supported</font> || 
+|| Screenwrap toggle || {{{data-ez-screenwrap}}} || If tag present, specifies if the EZ navigation highlight exhibits a wrapping behavior at the top and bottom of the page. || || <font color="green">???</font> ||
+|| Start at || {{{data-ez-startat="IDREF1 IDREF2"}}} || [dataEzStartat] ||[attrStartat `data-ez-startat` documentation] || <font color="green">Fully supported</font> || 
+|| Allow re-order || {{{data-ez-allowreorder}}} || Specifies if the page is to be navigated in the DOM order only or if it is to be navigated in a re-ordered fashion as specified by the {{{tabindex}}} and {{{aria-flowto}}} attributes. || || <font color="green">Fully supported</font> ||
+|| [dataEzTabnav Tab Navigation] || {{{data-ez-tabnav}}} || Specifies how Tab and Shift+Tab navigate on the screen. || || <font color="orange">Partially supported</font><br>[dataEzTabnav More information] ||
+|| Auto Repeat || {{{data-ez-autorepeat}}} || Specifies the auto-repeat behavior of the EZ Access buttons and keyboard keys: default 'off', other options are 'keyboard' for repeat only on keyboard, or 'on' for OS default autorepeat on everything. || || <font color="green">Supported</font> ('modal' option not to be supported) ||
+|| EZ Access starting mode || {{{data-ez-start}}}<br>*Values:* on, off || Specifies if EZ Access mode is forced on or off when the page loads rather than relying on the default behavior. || [attrStart `data-ez-start` documentation] || <font color="green">Fully supported</font> ||
+|| Slide to read on/off || {{{data-ez-slidetoread}}}<br>*Values:* on, off || Default is on. Specifies that the slide-to-read functionality is turned on or off for a page. || || <font color="green">Fully supported</font> ||
+|| Reset || `data-ez-reset` || Resets session variables, such as the behavior of the EZ Back button and the audio volume. || [attrReset `data-ez-reset` documentation] || <font color="green">Fully supported</font> ||
+|| Timeout<br>3 Attributes || `data-timeout` || Specifies the message to be read and displayed before the system times out || [attrTimeout `data-ez-timeout*` documentation] || ||
+|| " || `data-timeout-delay="`_`before`_` `_`after`_`"` || Specifies the delay (in ms) before and optionally after the timeout message is displayed. || " || ||
+|| " || `data-ez-timeout-href` || Specifies the page to load when the system completely times out. || " || ||
+|| Idle Speech<br>3 Attributes || `data-ez-idlespeech` || Specifies the speech to be spoken (not displayed) when the system is not in EZ Access. || [attrIdlespeech `data-ez-idlespeech*` documentation] || ||
+|| " || `data-ez-idlespeech-loop`<br>*Values:* `true`, `false` || Specifies if the idle speech is run in a continuous loop when EZ Access mode is off or only plays when the page is first loaded. || " || ||
+|| " || `data-ez-idlespeech-delay` || Specifies a delay (in ms) before the idle speech is spoken to the user. || " || ||
+|| Help || `data-ez-help` || Specifies one or more help layers associated with the page. Default help is provided if this attribute is missing. || [attrHelp `data-ez-help` documentation]<br><br>[ezHelp EZ Help best practices]|| ||
+
+=== Content element tags ===
+Please note that content element tags are the tags specified in the comma-separated string called {{{COMPATIBLE_TAGS}}} declared at the top of the ezaccess.js file.
+
+By default, the following tags are supported:
+
+{{{p, img, span, a, div, h1, h2, h3, h4, h5, figure, figcaption, ul, ol, li, input, button, textarea, select, article, aside, hgroup}}}
+
+|| *Name* || *Code* || *Description* || *Documentation* || *Support* ||
+|| Chunking || {{{data-ez-chunking}}}<br>*Values: *Please see [dataEzChunking] || Specifies the behavior and grouping of elements with the EZ highlight and speech output. || || <font color="orange">Partially supported</font> ||
+|| Focusable || {{{data-ez-focusable}}}<br>none, {{{-point}}} or {{{-nav}}} || Specifies if the element and its content is focusable or not. || || <font color="green">Fully supported</font> ||
+|| Sub-navigation || {{{data-ez-subnavtype}}}<br>*Values: *Please see [dataEzSubnavtype]<br>*Depends on other attribute(s)* || Specifies parent and child element navigation behavior for elements that are part of the same group, table row, or table column|| || <font color="orange">Partially supported</font> ||
+|| Hierarchical wrap || {{{data-ez-hierarchicalwrap}}} || Only for elements with the attribute {{{data-ez-subnavtype="hierarchical"}}} — specifies if the EZ navigation highlight exhibits a wrapping behavior at the top and bottom of the hierarchical chunk or group. || || <font color="red">Not supported</font> ||
+|| Auto advance || {{{data-ez-autoadvance}}}="INT" in milliseconds || Specifies the behavior and movement of the EZ Highlight. It can be applied to div tags within the document. || || <font color="green">Fully supported</font> ||
+|| Say alternative || {{{data-ez-sayalt}}}<br>none, {{{-point}}} or {{{-nav}}} || Specifies text that is provided in the speech output instead of that displayed on the screen or otherwise generated for the element. This overrides any _role_ or _value_ that an element might have. || [attrSayalt `data-ez-sayalt*` documentation] || <font color="green">Fully supported</font> ||
+|| Say before || {{{data-ez-saybefore}}}<br>none, {{{-point}}} or {{{-nav}}} || Specifies text that is provided in the speech output before what is displayed. || [attrSaybefore `data-ez-saybefore*` documentation] || <font color="green">Fully supported</font> ||
+|| Say after || {{{data-ez-sayafter}}}<br>none, {{{-point}}} or {{{-nav}}} || Specifies text that is provided in the speech output after what is displayed. || [attrSayafter `data-ez-sayafter*` documentation] || <font color="green">Fully supported</font> ||
+|| Say role || `data-ez-sayrole` || Specifies the string that is to be read as the role of an element. This attribute overrides any default role and can be used for custom controls (such as switches or toggle buttons). || [attrSayrole `data-ez-sayrole` documentation] || ||
+|| Say value || `data-ez-sayalt` || Specifies the string that is to be read as the value of a control or other element. This overrides any default spoken value that might be calculated based on the element. || [attrSayvalue `data-ez-sayvalue` documentation] || ||
+|| Touch and read || {{{data-ez-touchandread}}} || Specifies if EZ Access mode or Touch-and-Read is turned on when a particular element is touched. || || <font color="red">Not supported</font> ||
+|| Slide to read || {{{data-ez-slidetoread}}} || Specifies whether the Slide-to-read functionality is turned on or off for an element (or contained elements as inherited). || || <font color="red">Not supported</font> ||
+|| Tab index || {{{tabindex}}} any number || Follows specifications [http://reference.sitepoint.com/html/a/tabindex here]. Negative numbers have same behavior as {{{data-ez-focusable="false"}}}. || || <font color="green">Fully supported</font> ||
+|| Aria flowto || {{{aria-flowto}}} any id || Only one element id. When navigating and press down, the highlight jumps to that id. If you press up from the id jumped to, you will go back to the original. || || <font color="green">Fully supported</font> ||
+|| Key binding || {{{data-ez-keybinding}}}<br>*Values:* `back`, `next`, `skipbackward`, `skipforward` || If the user presses a specified EZ Access key, then it acts as if the element with the {{{data-ez-keybinding}}} attribute was clicked rather than relying on the default EZ Access behavior. Note that only the first element with each key binding is clicked.|| [attrKeybinding `data-ez-keybinding` documentation] || ||
+|| Help || `data-ez-help` || Specifies one or more help layers associated with the element. The help layer cascade can be terminated with a double vertical bar at the end of the attribute value. || [attrHelp `data-ez-help` documentation]<br><br>[ezHelp EZ Help best practices]|| ||
